@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表渲染</title>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script type="text/babel">
+        let arr = ['苹果','葡萄','菠萝','荔枝'];
+        // 如果return多行，那么需要一个根元素包裹，React.Fragment可起到这个作用，也可以使用其他标签，由于此处为ul内的内容
+        //所以本处使用React.Fragment，它的好处是页面不会出现该标签
+        function MyFriuts(props) {
+            return (
+                <React.Fragment>
+                    {
+                        //如果要访问变量用{}，
+                        props.arr.map((item,index)=>{
+                            return <li key={index}>{item}</li>                                                   
+                        })
+                    }
+                </React.Fragment>
+            );
+        }
+        ReactDOM.render(<MyFriuts arr={arr}/>,document.getElementById('root'));
+    </script>
+</head>
+<body>
+    <ul id="root"></ul>
+</body>
+</html>

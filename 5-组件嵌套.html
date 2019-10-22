@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件嵌套</title>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script type="text/babel">
+          class MyTable extends React.Component{
+            constructor(props) {
+                super(props);
+                //state为本组件的数据模型
+                this.state={};
+            }
+            //模板的渲染
+            render(){
+                return (
+                    <table>
+                        <tbody>                       
+                            <MyTd />
+                        </tbody>
+                    </table>
+                );
+            }
+        }
+
+        class MyTd extends React.Component{
+            constructor(props) {
+                super(props);
+                this.state={};
+            }
+            //模板的渲染
+            render(){
+                return (
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                );
+            }
+        }
+        ReactDOM.render(<MyTable />,document.getElementById('root'));
+    </script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+</html>

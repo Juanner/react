@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表格渲染</title>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script type="text/babel">    
+        class MyTr extends React.Component{     
+            //模板的渲染
+            render(){
+                return (
+                    <table>
+                    <thead>
+                        <tr>
+                            <th>姓名</th>
+                            <th>年龄</th>
+                            <th>性别</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            //如果要访问变量用{}，
+                            this.props.arr.map((item,index)=>{
+                                return (
+                                    <tr key={index}>
+                                        <td>{item.name}</td>  
+                                        <td>{item.age}</td>
+                                        <td>{item.gender}</td>
+                                    </tr>   
+                                );                         
+                            })
+                        }
+                    </tbody>  
+                    </table>    
+                );
+            }
+        }
+        let arr=[
+            {name:'lisa',age:'12',gender:'女'},
+            {name:'frank',age:'23',gender:'男'},
+            {name:'jogger',age:'17',gender:'女'},
+            {name:'yoyo',age:'37',gender:'男'},
+            {name:'Jackson',age:'21',gender:'男'}
+        ];
+        ReactDOM.render(<MyTr arr={arr}/>,document.getElementById('root'));
+    </script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+</html>

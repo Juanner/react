@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script type="text/babel">
+        //声明组件-函数声明方式,函数名称第一个字母一定要大写
+        //props是父组件给子组件传参存放的位置，是一个对象
+        function MyCom(props){
+            let test = 'test1';
+            return (
+                <div>
+                    <h1>hello{test}</h1>    
+                    <h1>world{props.stu.name}</h1>   
+                </div>
+            );
+        }
+        //将组件渲染到容器中
+        let student={
+            name:'franklin'
+        };
+        //stu处代表给子组件传参
+        ReactDOM.render(<MyCom stu={student}/>,document.getElementById('container'));
+        const temp = <h3>temp</h3>;
+        console.log(temp);
+        ReactDOM.render(temp,document.getElementById('one'));
+    </script>
+</head>
+<body>
+    <div id="container"></div>
+    <div id="one"></div>
+</body>
+</html>
